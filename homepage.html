@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Homepage</title>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+
+		<link rel="stylesheet" href="csshomepage.css" />
+		<link rel="stylesheet" href="./upload.css" />
+
+		<style></style>
+
+		<script type="module" src="./homepage.js"></script>
+		<script type="module" src="./upload.js"></script>
+	</head>
+
+	<body>
+		<aside id="mySidenav" class="sidenav" role="navigation" aria-label="User navigation menu">
+			<a href="javascript:void(0)" class="closebtn" aria-label="Close navigation">&times;</a>
+
+			<div class="user-info">
+				<h1>Hello</h1>
+				<div><strong>First Name:</strong> <span id="loggedUserFName"></span></div>
+				<div><strong>Last Name:</strong> <span id="loggedUserLName"></span></div>
+				<div><strong>Email:</strong> <span id="loggedUserEmail"></span></div>
+
+				<a
+					href="upload.html"
+					id="upload"
+					aria-label="Upload"
+					style="
+						padding: 12px 25px;
+						margin-top: 20px;
+						background-color: rgb(0, 123, 255);
+						border: none;
+						color: white;
+						cursor: pointer;
+						border-radius: 5px;
+						font-size: 18px;
+						transition: background-color 0.3s ease, transform 0.3s ease;
+						text-align: center;
+						display: inline-block;
+						text-decoration: none;
+					"
+					onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='translateY(-2px)';"
+					onmouseout="this.style.backgroundColor='rgb(0, 123, 255)'; this.style.transform='translateY(0)';"
+				>
+					Upload
+				</a>
+
+				<button id="logout" aria-label="Logout">Logout</button>
+			</div>
+		</aside>
+
+		<div id="menuButton" class="menu-button" aria-label="Open navigation menu">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<main class="search-container" role="main">
+			<form action="/search" method="GET" class="search-form" aria-label="Search form">
+				<input
+					type="text"
+					placeholder="Search..."
+					name="q"
+					class="search-input"
+					aria-label="Search"
+					autocomplete="off"
+					required
+				/>
+				<button type="submit" class="search-icon-button" aria-label="Submit search">
+					<i class="fas fa-search"></i> Search
+				</button>
+			</form>
+		</main>
+
+		<div>
+			<div class="form-group files" style="display: none;">
+				<label class="my-auto">Upload Your Paper </label>
+				<input id="file" type="file" class="form-control" multiple />
+			</div>
+			<div id="filePreviewContainer" class="file-preview" style="margin-top: 100px;">
+				<!-- File previews will be inserted here -->
+			</div>
+		</div>
+
+		<script>
+			document.getElementById('menuButton').onclick = function () {
+				document.getElementById('mySidenav').style.left = '0';
+			};
+
+			document.querySelector('.closebtn').onclick = function () {
+				document.getElementById('mySidenav').style.left = '-250px';
+			};
+		</script>
+	</body>
+</html>
